@@ -1,32 +1,30 @@
 using Application.Common;
 using Application.Dtos.ThirdParty;
 using Application.Interfaces.ThirdParty;
-using Domain.Entities.ThirdPartyRegister;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers.ThirdPartyRegister;
 
 [ApiController]
 [Route("api/v1/[controller]")]
-public class DonorController : ControllerBase
+public class ReceiverController : ControllerBase
 {
-    private readonly IDonorService _donorService;
+    private readonly IReceiverService _receiverService;
 
-    public DonorController(IDonorService donorService)
+    public ReceiverController(IReceiverService receiverService)
     {
-        _donorService = donorService;
+        _receiverService = receiverService;
     }
 
     [HttpPost]
-    public async Task<IActionResult> Create(DonorRequestDto dto)
+    public async Task<IActionResult> Create(ReceiverRequestDto dto)
     {
         try
         {
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _donorService.Insert(dto);
+            var result = await _receiverService.Insert(dto);
             return Ok(result);
         }
         catch (ResourceNotFoundException ex)
@@ -43,7 +41,7 @@ public class DonorController : ControllerBase
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = _donorService.GetAll();
+            var result = _receiverService.GetAll();
             return Ok(result);
         }
         catch (ResourceNotFoundException ex)
@@ -60,7 +58,7 @@ public class DonorController : ControllerBase
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            var result = await _donorService.GetById(id);
+            var result = await _receiverService.GetById(id);
 
             return Ok(result);
         }
@@ -71,12 +69,12 @@ public class DonorController : ControllerBase
     }
 
     [HttpPut]
-    public async Task<IActionResult> Update(Guid id, DonorRequestDto dto)
+    public async Task<IActionResult> Update(Guid id, ReceiverRequestDto dto)
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
         
-        var result = await _donorService.Edit(id, dto);
+        var result = await _receiverService.Edit(id, dto);
         return Ok(result);
     }
 
@@ -88,7 +86,7 @@ public class DonorController : ControllerBase
             if (!ModelState.IsValid)
                 return BadRequest(ModelState);
 
-            await _donorService.Delete(id);
+            await _receiverService.Delete(id);
             return NoContent();
         }
         catch (ResourceNotFoundException ex)

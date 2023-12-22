@@ -7,42 +7,42 @@ using Domain.Interfaces;
 
 namespace Application.Services.ThirdParty;
 
-public class DonorService : IDonorService
+public class ReceiverService : IReceiverService
 {
-    private readonly IBaseRepository<Donor> _repository;
+    private readonly IBaseRepository<Receiver> _repository;
     private readonly IMapper _mapper;
 
-    public DonorService(IBaseRepository<Donor> repository, IMapper mapper)
+    public ReceiverService(IBaseRepository<Receiver> repository, IMapper mapper)
     {
         _repository = repository;
         _mapper = mapper;
     }
 
-    public async Task<DonorResponseDto> Insert(DonorRequestDto dto)
+    public async Task<ReceiverResponseDto> Insert(ReceiverRequestDto dto)
     {
-        var donor = _mapper.Map<Donor>(dto);
-        await _repository.AddAsync(donor);
+        var receiver = _mapper.Map<Receiver>(dto);
+        await _repository.AddAsync(receiver);
         await _repository.SaveChangesAsync();
-        return _mapper.Map<DonorResponseDto>(donor);
+        return _mapper.Map<ReceiverResponseDto>(receiver);
     }
 
-    public IEnumerable<DonorResponseDto> GetAll()
+    public IEnumerable<ReceiverResponseDto> GetAll()
     {
-        var donors = _repository.List().ToArray();
+        var receivers = _repository.List().ToArray();
 
-        return _mapper.Map<IEnumerable<DonorResponseDto>>(donors);
+        return _mapper.Map<IEnumerable<ReceiverResponseDto>>(receivers);
     }
 
-    public async Task<DonorResponseDto> GetById(Guid id)
+    public async Task<ReceiverResponseDto> GetById(Guid id)
     {
         var result = await _repository.FindAsync(id);
         if (result is null)
             throw new ResourceNotFoundException("No value found.");
 
-        return _mapper.Map<DonorResponseDto>(result);
+        return _mapper.Map<ReceiverResponseDto>(result);
     }
 
-    public async Task<DonorResponseDto> Edit(Guid id, DonorRequestDto dto)
+    public async Task<ReceiverResponseDto> Edit(Guid id, ReceiverRequestDto dto)
     {
         var result = await _repository.FindAsync(id);
         if (result is null)
@@ -52,7 +52,7 @@ public class DonorService : IDonorService
         var savedResult = _repository.Update(result);
         await _repository.SaveChangesAsync();
 
-        return _mapper.Map<DonorResponseDto>(savedResult);
+        return _mapper.Map<ReceiverResponseDto>(savedResult);
     }
 
     public async Task Delete(Guid id)

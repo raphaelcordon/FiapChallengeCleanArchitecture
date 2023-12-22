@@ -133,6 +133,7 @@
 /Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Application/obj/Debug/net7.0/Application.csproj.CoreCompileInputs.cache
 /Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Application/obj/Debug/net7.0/Application.MvcApplicationPartsAssemblyInfo.cs
 /Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Application/obj/Debug/net7.0/Application.MvcApplicationPartsAssemblyInfo.cache
+/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Application/obj/Debug/net7.0/Application.sourcelink.json
 /Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Application/obj/Debug/net7.0/staticwebassets.build.json
 /Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Application/obj/Debug/net7.0/staticwebassets.development.json
 /Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Application/obj/Debug/net7.0/staticwebassets/msbuild.Application.Microsoft.AspNetCore.StaticWebAssets.props

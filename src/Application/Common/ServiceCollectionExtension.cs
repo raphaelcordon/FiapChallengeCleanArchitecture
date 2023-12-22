@@ -28,6 +28,7 @@ public static class ServiceCollectionExtension
         
         services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         services.AddScoped<IDonorService, DonorService>();
+        services.AddScoped<IReceiverService, ReceiverService>();
         
         return (ServiceCollection)services;
     }

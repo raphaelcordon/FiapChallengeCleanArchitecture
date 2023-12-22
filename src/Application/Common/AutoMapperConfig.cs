@@ -15,7 +15,7 @@ public class AutoMapperConfig : Profile
         CreateMap<DonorResponseDto, Donor>();
         
         CreateMap<Receiver, ReceiverRequestDto>();
-        CreateMap<DonorRequestDto, Receiver>();
+        CreateMap<ReceiverRequestDto, Receiver>();
         
         CreateMap<Receiver, ReceiverResponseDto>();
         CreateMap<ReceiverResponseDto, Receiver>();

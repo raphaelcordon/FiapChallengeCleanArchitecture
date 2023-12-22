@@ -8,5 +8,5 @@ public interface IDonorService
     IEnumerable<DonorResponseDto> GetAll();
     Task<DonorResponseDto> GetById(Guid id);
     Task<DonorResponseDto> Edit(Guid id, DonorRequestDto dto);
-    Task<DonorResponseDto> Delete(Guid id);
+    Task Delete(Guid id);
 }
