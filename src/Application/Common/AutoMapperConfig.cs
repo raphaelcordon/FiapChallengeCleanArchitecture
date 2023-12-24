@@ -1,5 +1,7 @@
+using Application.Dtos.Food;
 using Application.Dtos.ThirdParty;
 using AutoMapper;
+using Domain.Entities.Food;
 using Domain.Entities.ThirdPartyRegister;
 
 namespace Application.Common;
@@ -19,5 +21,11 @@ public class AutoMapperConfig : Profile
         
         CreateMap<Receiver, ReceiverResponseDto>();
         CreateMap<ReceiverResponseDto, Receiver>();
+        
+        CreateMap<Food, FoodRequestDto>();
+        CreateMap<FoodRequestDto, Food>();
+        
+        CreateMap<Food, FoodResponseDto>();
+        CreateMap<FoodResponseDto, Food>();
     }
 }

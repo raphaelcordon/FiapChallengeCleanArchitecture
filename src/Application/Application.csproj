@@ -24,7 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Dtos\Food\" />
       <Folder Include="Dtos\Package\" />
     </ItemGroup>
 

@@ -1,6 +1,7 @@
+using Application.Interfaces.Food;
 using Application.Interfaces.ThirdParty;
-using Application.Services.ThirdParty;
-using Domain.Entities.ThirdPartyRegister;
+using Application.Services.FoodService;
+using Application.Services.ThirdPartyService;
 using Domain.Interfaces;
 using Infrastructure;
 using Infrastructure.Database.Repositories;
@@ -29,6 +30,7 @@ public static class ServiceCollectionExtension
         services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         services.AddScoped<IDonorService, DonorService>();
         services.AddScoped<IReceiverService, ReceiverService>();
+        services.AddScoped<IFoodService, FoodService>();
         
         return (ServiceCollection)services;
     }
