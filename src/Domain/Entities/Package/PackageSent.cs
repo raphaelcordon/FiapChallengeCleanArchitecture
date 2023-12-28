@@ -4,9 +4,16 @@ namespace Domain.Entities.Package;
 
 public class PackageSent : Package
 {
-    public PackageSent(List<Food.Food> foodList, Receiver receiver) : base(foodList)
+    public PackageSent() : base(new List<Guid>()) { } 
+    public PackageSent(List<Guid> foodList, Guid receiverId) : base(foodList)
     {
-        Receiver = receiver;
+        ReceiverId = receiverId;
     }
-    public Receiver Receiver { get; set; }
+    public Guid ReceiverId { get; set; }
+    
+    public void UpdateDetails(List<Guid> foodList, Guid receiverId)
+    {
+        FoodList = foodList;
+        ReceiverId = receiverId;
+    }
 }

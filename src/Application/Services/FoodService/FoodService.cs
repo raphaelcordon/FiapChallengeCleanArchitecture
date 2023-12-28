@@ -1,6 +1,6 @@
 using System.Data;
 using Application.Common;
-using Application.Dtos.Food;
+using Application.Dtos.FoodDtos;
 using Application.Interfaces.Food;
 using AutoMapper;
 using Domain.Entities.Food;

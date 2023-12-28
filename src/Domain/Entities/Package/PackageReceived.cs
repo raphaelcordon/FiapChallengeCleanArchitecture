@@ -4,10 +4,16 @@ namespace Domain.Entities.Package;
 
 public class PackageReceived : Package
 {
-    public PackageReceived(List<Food.Food> foodList, Donor donor) : base(foodList)
+    public PackageReceived() : base(new List<Guid>()) { } 
+    public PackageReceived(List<Guid> foodList, Guid donorId ) : base(foodList)
     {
-        Donor = donor;
+        DonorId = donorId;
     }
+    public Guid DonorId { get; set; }
     
-    public Donor Donor { get; set; }
+    public void UpdateDetails(List<Guid> foodList, Guid donorId)
+    {
+        FoodList = foodList;
+        DonorId = donorId;
+    }
 }

@@ -18,14 +18,12 @@ public class ReceiverMapping : IEntityTypeConfiguration<Receiver>
 
         builder.Property(p => p.Name)
             .IsRequired()
-            .HasColumnName("Name")
             .HasConversion(
                 v => v.Name,
                 v => new ThirdPartyName(v));
         
         builder.Property(p => p.IsCompany)
             .IsRequired()
-            .HasColumnName("IsCompany")
             .HasColumnType("BOOL");
     }
 }

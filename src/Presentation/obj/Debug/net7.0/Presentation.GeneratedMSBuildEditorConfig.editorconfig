@@ -1,0 +1,71 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Presentation
+build_property.RootNamespace = Presentation
+build_property.ProjectDir = /Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = true
+build_property.MSBuildProjectDirectory = /Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation
+build_property._RazorSourceGeneratorDebug = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Donor/DonorCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9ub3IvRG9ub3JDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Donor/DonorUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRG9ub3IvRG9ub3JVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Food/Food.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvRm9vZC9Gb29kLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvSG9tZS9JbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Project/ProjectEntities.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvamVjdC9Qcm9qZWN0RW50aXRpZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Project/ProjectPackages.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUHJvamVjdC9Qcm9qZWN0UGFja2FnZXMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Receiver/ReceiverCreate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVjZWl2ZXIvUmVjZWl2ZXJDcmVhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Receiver/ReceiverUpdate.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvUmVjZWl2ZXIvUmVjZWl2ZXJVcGRhdGUuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL0Vycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[/Users/raphaelcordon/Drive/DotNet/Studies/2023/FiapChallengeCleanArchitecture/src/Presentation/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvU2hhcmVkL19MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-gwyn2hk7aw

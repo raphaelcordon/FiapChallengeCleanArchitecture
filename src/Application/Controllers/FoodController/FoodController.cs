@@ -1,5 +1,5 @@
 using Application.Common;
-using Application.Dtos.Food;
+using Application.Dtos.FoodDtos;
 using Application.Interfaces.Food;
 using Microsoft.AspNetCore.Mvc;
 

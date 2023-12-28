@@ -1,4 +1,4 @@
-using Application.Dtos.ThirdParty;
+using Application.Dtos.ThirdPartyDtos;
 
 namespace Application.Interfaces.ThirdParty;
 

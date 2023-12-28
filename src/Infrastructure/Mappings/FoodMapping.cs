@@ -20,26 +20,22 @@ public class FoodMapping : IEntityTypeConfiguration<Food>
 
         builder.Property(p => p.FoodName)
             .IsRequired()
-            .HasColumnName("FoodName")
             .HasConversion(
                 v => v.Name,
                 v => new FoodName(v));
         
         builder.Property(p => p.State)
             .IsRequired()
-            .HasColumnName("State")
             .HasConversion(
                 v => v.ToString(),
                 v => (State)Enum.Parse(typeof(State), v));
         
         builder.Property(p => p.IsPerishable)
             .IsRequired()
-            .HasColumnName("IsPerishable")
             .HasColumnType("BOOL");
 
         builder.Property(p => p.ExpirationDate)
             .IsRequired()
-            .HasColumnName("ExpirationDate")
             .HasColumnType("DATE");
     }
 }

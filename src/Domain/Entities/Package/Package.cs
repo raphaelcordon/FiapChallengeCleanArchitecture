@@ -2,12 +2,12 @@ namespace Domain.Entities.Package;
 
 public abstract class Package : Base
 {
-    protected Package(List<Food.Food> foodList)
+    protected Package(List<Guid> foodList)
     {
-        FoodList = foodList;
+        FoodList = foodList ?? new List<Guid>();
         PackageCreation = DateTime.Now;
     }
 
-    public List<Food.Food> FoodList { get; set; }
+    public List<Guid> FoodList { get; set; }
     public DateTime PackageCreation { get; private set; }
 }

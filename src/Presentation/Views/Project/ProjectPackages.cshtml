@@ -1,0 +1,91 @@
+﻿@{
+    ViewData["Title"] = "The Project";
+}
+@model ProjectPackagesViewModel
+
+<div>
+    <h1 class="text-center pb-1">P A C K A G E S</h1>
+    <h3 class="text-center pb-1">
+        <a asp-controller="Project" asp-action="ProjectEntities" class="btn btn-success btn-lg">..:: Entities ::..</a>
+        <a asp-controller="Project" asp-action="ProjectPackages" class="btn btn-secondary btn-lg disabled">..:: Packages ::..</a>
+    </h3>
+
+    <hr/>
+
+    <h4>Packages we received</h4>
+    <div class="container bg-light pt-2">
+        <a asp-controller="Donor" asp-action="DonorCreate" class="btn btn-outline-success btn-lg d-block">Create</a>
+
+        <table class="table w-50">
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Food List</th>
+                <th>Date</th>
+                <th>Edit</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.PackagesReceived)
+            {
+                var donorName = Model.Donors.FirstOrDefault(d => d.Id == item.DonorId);
+                <tr>
+                    <td>@donorName.Name.Name</td>
+                    <td>
+                        @foreach (var foodId in item.FoodList)
+                        {
+                            var foodName = Model.Foods.FirstOrDefault(f => f.Id == foodId)?.FoodName.Name;
+
+                            if (foodName != null)
+                            {
+                                <span>@foodName </span><br/>
+                            }
+                        }
+                    </td>
+                    <td>@item.PackageCreation.ToString("dd/MM/yyyy")</td>
+                    <td></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <hr/>
+
+    <h4>Packages we sent</h4>
+    <div class="container bg-light pt-2">
+        <a asp-controller="Receiver" asp-action="ReceiverCreate" class="btn btn-outline-success btn-lg d-block">Create</a>
+        <table class="table w-50">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Food List</th>
+                    <th>Date</th>
+                    <th>Edit</th>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach (var item in Model.PackagesSent)
+            {
+                var receiverName = Model.Receivers.FirstOrDefault(d => d.Id == item.ReceiverId);
+                <tr>
+                    <td>@receiverName.Name.Name</td>
+                    <td>
+                        @foreach (var foodId in item.FoodList)
+                        {
+                            var foodName = Model.Foods.FirstOrDefault(f => f.Id == foodId)?.FoodName.Name;
+
+                            if (foodName != null)
+                            {
+                                <span>@foodName </span><br/>
+                            }
+                        }
+                    </td>
+                    <td>@item.PackageCreation.ToString("dd/MM/yyyy")</td>
+                    <td></td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+    <hr/>
+</div>

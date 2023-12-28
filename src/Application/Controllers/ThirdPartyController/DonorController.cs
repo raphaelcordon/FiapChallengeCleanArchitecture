@@ -1,8 +1,6 @@
 using Application.Common;
-using Application.Dtos.ThirdParty;
+using Application.Dtos.ThirdPartyDtos;
 using Application.Interfaces.ThirdParty;
-using Domain.Entities.ThirdPartyRegister;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Application.Controllers.ThirdPartyRegister;

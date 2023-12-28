@@ -1,5 +1,5 @@
-using Application.Dtos.Food;
-using Application.Dtos.ThirdParty;
+using Application.Dtos.FoodDtos;
+using Application.Dtos.ThirdPartyDtos;
 
 namespace Application.Interfaces.Food;
 

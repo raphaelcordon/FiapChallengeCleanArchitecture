@@ -1,0 +1,54 @@
+@model Application.Dtos.ThirdPartyDtos.DonorResponseDto
+<div>
+    <h3 class="text-center pb-1">D O N O R</h3>
+    <hr/>
+
+    <h4>Donors</h4>
+    <div class="container">
+        <form asp-controller="Donor" asp-action="DonorUpdated" method="post">
+            <input type="hidden" name="Id" value="@Model.Id"/>
+            <fieldset>
+                <legend>Add/Edit Donor</legend>
+                <table class="table w-50">
+                    <tr>
+                        <td>
+                            <label for="DonorName">Name: </label>
+                            <input type="text" name="Name" required value="@Model.Name.Name"/>
+                        </td>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="IsCompany">Is a company? </label>
+                                    </td>
+                                    <td>
+                                        <label class="container">
+                                            Yes
+                                            <input type="radio" name="IsCompany" value="true" @(Model.IsCompany ? "checked='checked'" : "")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="container">
+                                            &nbsp;No
+                                            <input type="radio" name="IsCompany" value="false" @(Model.IsCompany ? "" : "checked='checked'")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value=" - S A V E - " class="btn btn-success" style="width: 100%;"/>
+                            <a asp-controller="Donor" asp-action="DonorDelete" asp-route-id="@Model.Id" class="btn btn-danger mt-1" style="width: 100%;">
+                                - D E L E T E -
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+    <hr/>
+</div>

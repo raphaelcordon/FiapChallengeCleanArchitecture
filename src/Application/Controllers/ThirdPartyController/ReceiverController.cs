@@ -1,5 +1,5 @@
 using Application.Common;
-using Application.Dtos.ThirdParty;
+using Application.Dtos.ThirdPartyDtos;
 using Application.Interfaces.ThirdParty;
 using Microsoft.AspNetCore.Mvc;
 
