@@ -1,0 +1,66 @@
+@model Presentation.Models.StateViewModel
+@{
+    var tomorrow = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
+}
+
+<div>
+    <h3 class="text-center pb-1">F O O D</h3>
+    <hr/>
+
+    <div class="container">
+        <form asp-controller="Food" asp-action="FoodNew" method="post">
+            <fieldset>
+                <legend>Add/Edit Food</legend>
+                <table class="table w-50">
+                    <tr>
+                        <td>
+                            <label for="Name">Name: </label>
+                            <input type="text" id="Name" name="FoodName" required/>
+                        </td>
+                        <td>
+                            <label for="State">State: </label>
+                            @using (Html.BeginForm())
+                            {
+                                @Html.DropDownListFor(m => m.SelectedState, Model.States)
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="IsPerishable">Is Perishable? </label>
+                                    </td>
+                                    <td>
+                                        <label class="container">
+                                            Yes
+                                            <input type="radio" id="IsPerishable" name="IsPerishable" value="true">
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="container">
+                                            &nbsp;No
+                                            <input type="radio" name="IsPerishable" value="false" checked>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                        <td>
+                            <label for="ExpirationDate">Expiration Date: </label>
+                            <input type="date" id="ExpirationDate" name="ExpirationDate" min="@tomorrow" required/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value=" - S A V E - " class="btn btn-secondary" style="width: 100%;"/>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+    <hr/>
+</div>

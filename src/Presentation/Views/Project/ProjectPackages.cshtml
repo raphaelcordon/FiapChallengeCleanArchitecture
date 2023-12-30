@@ -14,7 +14,7 @@
 
     <h4>Packages we received</h4>
     <div class="container bg-light pt-2">
-        <a asp-controller="Donor" asp-action="DonorCreate" class="btn btn-outline-success btn-lg d-block">Create</a>
+        <a asp-controller="PackageReceived" asp-action="PackageReceivedCreate" class="btn btn-outline-success btn-lg d-block">Create</a>
 
         <table class="table w-50">
             <thead>
@@ -30,7 +30,14 @@
             {
                 var donorName = Model.Donors.FirstOrDefault(d => d.Id == item.DonorId);
                 <tr>
-                    <td>@donorName.Name.Name</td>
+                    <td>@if (donorName != null)
+                        {
+                            @donorName.Name.Name
+                        }
+                        else
+                        {
+                            <text>Unknown Donor</text>
+                        }</td>
                     <td>
                         @foreach (var foodId in item.FoodList)
                         {
@@ -43,7 +50,7 @@
                         }
                     </td>
                     <td>@item.PackageCreation.ToString("dd/MM/yyyy")</td>
-                    <td></td>
+                    <td><a asp-controller="PackageReceived" asp-action="PackageReceivedUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a></td>
                 </tr>
             }
             </tbody>
@@ -53,7 +60,7 @@
 
     <h4>Packages we sent</h4>
     <div class="container bg-light pt-2">
-        <a asp-controller="Receiver" asp-action="ReceiverCreate" class="btn btn-outline-success btn-lg d-block">Create</a>
+        <a asp-controller="PackageSent" asp-action="PackageSentCreate" class="btn btn-outline-success btn-lg d-block">Create</a>
         <table class="table w-50">
             <thead>
                 <tr>
@@ -81,7 +88,7 @@
                         }
                     </td>
                     <td>@item.PackageCreation.ToString("dd/MM/yyyy")</td>
-                    <td></td>
+                    <td><a asp-controller="PackageSent" asp-action="PackageSentUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a></td>
                 </tr>
             }
             </tbody>

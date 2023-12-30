@@ -31,17 +31,16 @@
         </div>
     </nav>
 </header>
-<div class="container">
-    <main role="main" class="pb-3">
-        @RenderBody()
-    </main>
-</div>
 
-<footer class="border-top footer text-muted">
-    <div class="container">
-        &copy; 2024 - Raphael Cordon
-    </div>
+<main role="main" class="pb-3 container">
+    @RenderBody()
+</main>
+
+<footer class="footer">
+    <img src="~/img/main_logo_white.png" class="footer_logo" alt="Raphael Cordon">
+    <p>&copy; Raphael Cordon - 2024</p>
 </footer>
+
 <script src="~/lib/jquery/dist/jquery.min.js"></script>
 <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
 <script src="~/js/site.js" asp-append-version="true"></script>

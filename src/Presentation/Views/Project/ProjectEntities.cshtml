@@ -66,7 +66,7 @@
 
     <h4>Food</h4>
     <div class="container bg-light pt-2">
-        <a asp-controller="Food" asp-action="Food" class="btn btn-outline-success btn-lg d-block">Create</a>
+        <a asp-controller="Food" asp-action="FoodCreate" class="btn btn-outline-success btn-lg d-block">Create</a>
 
         <table class="table w-75">
             <thead>
@@ -86,7 +86,7 @@
                     <td>@item.State</td>
                     <td>@item.ExpirationDate.ToString("dd/MM/yyyy")</td>
                     <td>@(item.IsPerishable ? "Yes" : "No")</td>
-                    <td></td>
+                    <td><a asp-controller="Food" asp-action="FoodUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a></td>
                 </tr>
             }
             </tbody>

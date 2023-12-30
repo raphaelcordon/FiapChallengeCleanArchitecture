@@ -1,0 +1,50 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model Presentation.Models.PackageReceivedModels.PackageReceivedViewModels
+<div>
+    <h3 class="text-center pb-1">PACKAGE - R E C E I V E D - </h3>
+    <hr/>
+    
+    <div class="container">
+        <form asp-controller="PackageReceived" asp-action="PackageReceivedNew" method="post">
+            <fieldset>
+                <legend>Add/Edit Package Received</legend>
+                <table class="table w-50">
+                    <tr>
+                        <td>
+                            <label for="DonorId">Donor: </label>
+                            <select id="DonorId" name="DonorId" class="form-control" required>
+                                @if (Model?.Donors != null)
+                                {
+                                    foreach (var option in Model.Donors)
+                                    {
+                                        <option value="@option.Id">@option.Name.Name</option>
+                                    }
+                                }
+                            </select>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model?.Foods != null)
+                            {
+                                foreach (var option in Model.Foods)
+                                {
+                                    <input type="checkbox" id="@option.Id" name="SelectedFoods" value="@option.Id">
+                                      <label for="@option.Id"> @option.FoodName.Name</label><br>
+                                }
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value=" - S A V E - " class="btn btn-secondary" style="width: 100%;"/>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+    <hr/>
+</div>

@@ -1,9 +1,8 @@
 @model Application.Dtos.ThirdPartyDtos.ReceiverResponseDto
 <div>
-    <h3 class="text-center pb-1">D O N O R</h3>
+    <h3 class="text-center pb-1">R E C E I V E R</h3>
     <hr/>
-
-    <h4>Receivers</h4>
+    
     <div class="container">
         <form asp-controller="Receiver" asp-action="ReceiverUpdated" method="post">
             <input type="hidden" name="Id" value="@Model.Id"/>
@@ -12,8 +11,8 @@
                 <table class="table w-50">
                     <tr>
                         <td>
-                            <label for="ReceiverName">Name: </label>
-                            <input type="text" name="Name" required value="@Model.Name.Name"/>
+                            <label for="Name">Name: </label>
+                            <input type="text" id="Name" name="Name" required value="@Model.Name.Name" autocomplete="@Model.Name.Name"/>
                         </td>
                         <td>
                             <table>
@@ -24,7 +23,7 @@
                                     <td>
                                         <label class="container">
                                             Yes
-                                            <input type="radio" name="IsCompany" value="true" @(Model.IsCompany ? "checked='checked'" : "")>
+                                            <input type="radio" id="IsCompany" name="IsCompany" value="true" @(Model.IsCompany ? "checked='checked'" : "")>
                                             <span class="checkmark"></span>
                                         </label>
                                         <label class="container">

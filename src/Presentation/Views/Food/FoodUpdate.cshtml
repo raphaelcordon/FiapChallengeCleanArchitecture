@@ -1,0 +1,79 @@
+@model FoodUpdateViewModel
+@{
+    var tomorrow = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
+}
+<div>
+    <h3 class="text-center pb-1">F O O D</h3>
+    <hr/>
+    
+    <div class="container">
+        <form asp-controller="Food" asp-action="FoodUpdated" method="post">
+            <input type="hidden" name="Id" value="@Model.Food.Id"/>
+            <fieldset>
+                <legend>Add/Edit Food</legend>
+                <table class="table w-50">
+                    <tr>
+                        <td>
+                            <label for="Name">Name: </label>
+                            <input type="text" id="Name" name="FoodName" required value="@Model.Food.FoodName.Name" autocomplete="@Model.Food.FoodName.Name"/>
+                        </td>
+                        <td>
+                            <label for="State">State: </label>
+                            <select id="State" name="State" class="form-control">
+                                @foreach (var option in Model.StateOptions)
+                                {
+                                    if (Model.Food.State.ToString() == option.Text)
+                                    {
+                                        <option value="@option.Value" selected>@option.Text</option>
+                                    }
+                                    else
+                                    {
+                                        <option value="@option.Value">@option.Text</option>
+                                    }
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td>
+                                        <label for="IsPerishable">Is Perishable </label>
+                                    </td>
+                                    <td>
+                                        <label class="container">
+                                            Yes
+                                            <input type="radio" id="IsPerishable" name="IsPerishable" value="true" @(Model.Food.IsPerishable ? "checked='checked'" : "")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                        <label class="container">
+                                            &nbsp;No
+                                            <input type="radio" name="IsPerishable" value="false" @(Model.Food.IsPerishable ? "" : "checked='checked'")>
+                                            <span class="checkmark"></span>
+                                        </label>
+                                    </td>
+                                </tr>
+                            </table>
+                            <td>
+                                <label for="ExpirationDate">Expiration Date: </label>
+                                <input type="date" id="ExpirationDate" name="ExpirationDate" min="@tomorrow"
+                                       value="@Model.Food.ExpirationDate.ToString("yyyy-MM-dd")" required/>
+                            </td>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value=" - S A V E - " class="btn btn-success" style="width: 100%;"/>
+                            <a asp-controller="Food" asp-action="FoodDelete" asp-route-id="@Model.Food.Id" class="btn btn-danger mt-1" style="width: 100%;">
+                                - D E L E T E -
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+    <hr/>
+</div>

@@ -1,0 +1,63 @@
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@using Microsoft.AspNetCore.Html
+@model Presentation.Models.PackageSentModels.PackageSentUpdateViewModels
+<div>
+    <h3 class="text-center pb-1">PACKAGE - S E N T - </h3>
+    <hr/>
+
+    <div class="container">
+        <form asp-controller="PackageSent" asp-action="PackageSentUpdated" method="post">
+            <input type="hidden" name="Id" value="@Model.Package.Id"/>
+            <fieldset>
+                <legend>Add/Edit Package Sent</legend>
+                <table class="table w-50">
+                    <tr>
+                        <td>
+                            <label for="ReceiverId">Received by: </label>
+                            <select id="ReceiverId" name="ReceiverId" class="form-control" required>
+                                @if (Model?.Receivers != null)
+                                {
+                                    foreach (var option in Model.Receivers)
+                                    {
+                                        if (Model.Package.ReceiverId == option.Id)
+                                        {
+                                            <option value="@option.Id" selected="selected">@option.Name.Name</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@option.Id">@option.Name.Name</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @if (Model?.Foods != null)
+                            {
+                                foreach (var option in Model.Foods)
+                                {
+                                    bool isChecked = Model.Package.FoodList.Contains(option.Id);
+                                    <input type="checkbox" id="@option.Id" name="SelectedFoods" value="@option.Id" @(isChecked ? "checked" : "")>
+                                    <label for="@option.Id"> @option.FoodName.Name</label>
+                                    <br>
+                                }
+                            }
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">
+                            @Html.AntiForgeryToken()
+                            <input type="submit" value=" - S A V E - " class="btn btn-secondary" style="width: 100%;"/>
+                            <a asp-controller="PackageSent" asp-action="PackageSentDelete" asp-route-id="@Model.Package.Id" class="btn btn-danger mt-1" style="width: 100%;">
+                                - D E L E T E -
+                            </a>
+                        </td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </div>
+    <hr/>
+</div>
