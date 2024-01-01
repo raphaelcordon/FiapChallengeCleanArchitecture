@@ -56,7 +56,7 @@ Create an architecture and application that:
 - This is a study project.
 - Manually run "dotnet ef database update" to locally create the database file.
 - Run both, the **Application** and the **Presentation** apps.
-- Application layer has a Swagger available. Further instructions here.
+- Application layer has a Swagger available. Further instructions  --->&nbsp; **[H E R E](src/Application/README.md)** &nbsp;<---
 
 ---
 
