@@ -9,11 +9,12 @@ namespace Presentation.Controllers;
 
 public class PackageSentController : Controller
 {
+    private readonly IFoodService _foodService;
     private readonly IPackageSentService _packageSent;
     private readonly IReceiverService _receiverService;
-    private readonly IFoodService _foodService;
 
-    public PackageSentController(IPackageSentService packageSentService, IReceiverService receiverService, IFoodService foodService)
+    public PackageSentController(IPackageSentService packageSentService, IReceiverService receiverService,
+        IFoodService foodService)
     {
         _packageSent = packageSentService;
         _receiverService = receiverService;
@@ -30,7 +31,7 @@ public class PackageSentController : Controller
         };
         return View(viewModel);
     }
-    
+
     [HttpGet("PackageSentUpdate/{id:guid}")]
     public async Task<IActionResult> PackageSentUpdate(Guid id)
     {
@@ -51,7 +52,7 @@ public class PackageSentController : Controller
 
         return RedirectToAction("ProjectPackages", "Project");
     }
-    
+
 
     [HttpPost("PackageSentNew")]
     public async Task<IActionResult> PackageSentNew(PackageSentResponseViewModels formViewModel)
@@ -61,13 +62,13 @@ public class PackageSentController : Controller
             FoodList = formViewModel.SelectedFoods,
             ReceiverId = formViewModel.ReceiverId
         };
-        
+
         await _packageSent.Insert(dto);
-        
+
         TempData["ConfirmationMessage"] = "PackageSent created successfully";
         return RedirectToAction("ProjectPackages", "Project");
     }
-    
+
     [HttpPost("PackageSentUpdated")]
     public async Task<IActionResult> PackageSentUpdated(PackageSentResponseViewModels formViewModel)
     {

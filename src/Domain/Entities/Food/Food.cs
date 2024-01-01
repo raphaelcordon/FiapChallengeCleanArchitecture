@@ -14,9 +14,9 @@ public class Food : Base
 
     public FoodName FoodName { get; set; }
     public State State { get; set; }
-    public bool IsPerishable { get; set; } = false;
+    public bool IsPerishable { get; set; }
     public DateOnly ExpirationDate { get; set; }
-    
+
     public void UpdateDetails(FoodName foodName, State state, bool isPerishable, DateOnly expirationDate)
     {
         FoodName = foodName;

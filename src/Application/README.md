@@ -9,44 +9,55 @@
 
 ## **APPLICATION**
 
-- if you are running locally, is most likely that the Swagger will be available at:
-  - http://localhost:5001/swagger/index.html
+- If you are running locally, is most likely that the Swagger will be available at:
+    - http://localhost:5001/swagger/index.html
 
 ---
 
 ## **STRUCTURE**
 
-### Donor / Receiver / Food 
+### Donor / Receiver / Food
+
 Follow the structure below
->- **Post**
-   >    - ![readmeImgs/EntityPost.png](readmeImgs/EntityPost.png)
+> - **Post**
+    >
+- ![readmeImgs/EntityPost.png](readmeImgs/EntityPost.png)
 
->- **Get all**
-   >    - ![readmeImgs/EntityGetAll.png](readmeImgs/EntityGetAll.png)
+> - **Get all**
+    >
+- ![readmeImgs/EntityGetAll.png](readmeImgs/EntityGetAll.png)
 
->- **Get by Id**
-   >    - ![readmeImgs/EntityGetId.png](readmeImgs/EntityGetId.png)
+> - **Get by Id**
+    >
+- ![readmeImgs/EntityGetId.png](readmeImgs/EntityGetId.png)
 
->- **Put**
-   >    - ![readmeImgs/EntityPut.png](readmeImgs/EntityPut.png)
+> - **Put**
+    >
+- ![readmeImgs/EntityPut.png](readmeImgs/EntityPut.png)
 
->- **Delete**
-   >    - ![readmeImgs/EntityDelete.png](readmeImgs/EntityDelete.png)
-
+> - **Delete**
+    >
+- ![readmeImgs/EntityDelete.png](readmeImgs/EntityDelete.png)
 
 ### Package Received / Package Sent
+
 Follow the structure below
->- **Post**
-   >    - ![readmeImgs/PackagePost.png](readmeImgs/PackagePost.png)
+> - **Post**
+    >
+- ![readmeImgs/PackagePost.png](readmeImgs/PackagePost.png)
 
->- **Get all**
-   >    - ![readmeImgs/PackageGetAll.png](readmeImgs/PackageGetAll.png)
+> - **Get all**
+    >
+- ![readmeImgs/PackageGetAll.png](readmeImgs/PackageGetAll.png)
 
->- **Get by Id**
-   >    - ![readmeImgs/PackageGetId.png](readmeImgs/PackageGetId.png)
+> - **Get by Id**
+    >
+- ![readmeImgs/PackageGetId.png](readmeImgs/PackageGetId.png)
 
->- **Put**
-   >    - ![readmeImgs/PackagePut.png](readmeImgs/PackagePut.png)
+> - **Put**
+    >
+- ![readmeImgs/PackagePut.png](readmeImgs/PackagePut.png)
 
->- **Delete**
-   >    - ![readmeImgs/PackageDelete.png](readmeImgs/PackageDelete.png)
+> - **Delete**
+    >
+- ![readmeImgs/PackageDelete.png](readmeImgs/PackageDelete.png)

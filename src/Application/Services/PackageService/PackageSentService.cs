@@ -9,8 +9,8 @@ namespace Application.Services.PackageService;
 
 public class PackageSentService : IPackageSentService
 {
-    private readonly IBaseRepository<PackageSent> _repository;
     private readonly IMapper _mapper;
+    private readonly IBaseRepository<PackageSent> _repository;
 
     public PackageSentService(IBaseRepository<PackageSent> repository, IMapper mapper)
     {
@@ -47,7 +47,7 @@ public class PackageSentService : IPackageSentService
         var result = await _repository.FindAsync(id);
         if (result is null)
             throw new ResourceNotFoundException("No value found.");
-        
+
         result.UpdateDetails(dto.FoodList, dto.ReceiverId);
         var savedResult = _repository.Update(result);
         await _repository.SaveChangesAsync();

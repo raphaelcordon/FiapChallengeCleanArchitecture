@@ -30,14 +30,16 @@
             {
                 var donorName = Model.Donors.FirstOrDefault(d => d.Id == item.DonorId);
                 <tr>
-                    <td>@if (donorName != null)
+                    <td>
+                        @if (donorName != null)
                         {
                             @donorName.Name.Name
                         }
                         else
                         {
                             <text>Unknown Donor</text>
-                        }</td>
+                        }
+                    </td>
                     <td>
                         @foreach (var foodId in item.FoodList)
                         {
@@ -45,12 +47,15 @@
 
                             if (foodName != null)
                             {
-                                <span>@foodName </span><br/>
+                                <span>@foodName </span>
+                                <br/>
                             }
                         }
                     </td>
                     <td>@item.PackageCreation.ToString("dd/MM/yyyy")</td>
-                    <td><a asp-controller="PackageReceived" asp-action="PackageReceivedUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a></td>
+                    <td>
+                        <a asp-controller="PackageReceived" asp-action="PackageReceivedUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a>
+                    </td>
                 </tr>
             }
             </tbody>
@@ -63,12 +68,12 @@
         <a asp-controller="PackageSent" asp-action="PackageSentCreate" class="btn btn-outline-success btn-lg d-block">Create</a>
         <table class="table w-50">
             <thead>
-                <tr>
-                    <th>Name</th>
-                    <th>Food List</th>
-                    <th>Date</th>
-                    <th>Edit</th>
-                </tr>
+            <tr>
+                <th>Name</th>
+                <th>Food List</th>
+                <th>Date</th>
+                <th>Edit</th>
+            </tr>
             </thead>
             <tbody>
             @foreach (var item in Model.PackagesSent)
@@ -83,12 +88,15 @@
 
                             if (foodName != null)
                             {
-                                <span>@foodName </span><br/>
+                                <span>@foodName </span>
+                                <br/>
                             }
                         }
                     </td>
                     <td>@item.PackageCreation.ToString("dd/MM/yyyy")</td>
-                    <td><a asp-controller="PackageSent" asp-action="PackageSentUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a></td>
+                    <td>
+                        <a asp-controller="PackageSent" asp-action="PackageSentUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a>
+                    </td>
                 </tr>
             }
             </tbody>

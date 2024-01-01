@@ -20,7 +20,7 @@ public class ReceiverController : Controller
     {
         return View();
     }
-    
+
     [HttpGet("ReceiverUpdate/{id}")]
     public async Task<IActionResult> ReceiverUpdate(Guid id)
     {
@@ -36,7 +36,7 @@ public class ReceiverController : Controller
 
         return RedirectToAction("ProjectEntities", "Project");
     }
-    
+
 
     [HttpPost("ReceiverNew")]
     public async Task<IActionResult> ReceiverNew(ReceiverFormViewModel formViewModel)
@@ -53,11 +53,11 @@ public class ReceiverController : Controller
 
         return RedirectToAction("ProjectEntities", "Project");
     }
-    
+
     [HttpPost("ReceiverUpdated")]
     public async Task<IActionResult> ReceiverUpdated(ReceiverFormViewModel formViewModel)
     {
-        var dto = new ReceiverRequestDto()
+        var dto = new ReceiverRequestDto
         {
             Name = new ThirdPartyName(formViewModel.Name),
             IsCompany = formViewModel.IsCompany

@@ -1,7 +1,7 @@
 ﻿@{
     ViewData["Title"] = "The Project";
 }
-@model Presentation.Models.ProjectEntitiesViewModel
+@model ProjectEntitiesViewModel
 
 <div>
     <h1 class="text-center pb-1">E N T I T I E S</h1>
@@ -30,7 +30,9 @@
                 <tr>
                     <td>@item.Name.Name</td>
                     <td>@(item.IsCompany ? "Yes" : "No")</td>
-                    <td><a asp-controller="Donor" asp-action="DonorUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a></td>
+                    <td>
+                        <a asp-controller="Donor" asp-action="DonorUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a>
+                    </td>
                 </tr>
             }
             </tbody>
@@ -56,7 +58,9 @@
                 <tr>
                     <td>@item.Name.Name</td>
                     <td>@(item.IsCompany ? "Yes" : "No")</td>
-                    <td><a asp-controller="Receiver" asp-action="ReceiverUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a></td>
+                    <td>
+                        <a asp-controller="Receiver" asp-action="ReceiverUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a>
+                    </td>
                 </tr>
             }
             </tbody>
@@ -86,7 +90,9 @@
                     <td>@item.State</td>
                     <td>@item.ExpirationDate.ToString("dd/MM/yyyy")</td>
                     <td>@(item.IsPerishable ? "Yes" : "No")</td>
-                    <td><a asp-controller="Food" asp-action="FoodUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a></td>
+                    <td>
+                        <a asp-controller="Food" asp-action="FoodUpdate" asp-route-id="@item.Id" class="btn btn-danger btn-sm">Edit</a>
+                    </td>
                 </tr>
             }
             </tbody>

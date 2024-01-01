@@ -11,12 +11,12 @@ public class PackageSentMapping : IEntityTypeConfiguration<PackageSent>
         builder.ToTable(nameof(PackageSent));
 
         builder.HasKey(x => x.Id);
-        
+
         builder.Property(p => p.Id)
             .ValueGeneratedNever()
             .IsRequired()
             .HasColumnType("GUID");
-        
+
         builder.Property(p => p.FoodList)
             .HasConversion(
                 v => string.Join(";", v),
@@ -24,7 +24,7 @@ public class PackageSentMapping : IEntityTypeConfiguration<PackageSent>
                     .Select(Guid.Parse).ToList())
             .IsRequired()
             .HasColumnType("TEXT");
-        
+
         builder.Property(p => p.PackageCreation)
             .IsRequired()
             .HasColumnType("DATETIME");

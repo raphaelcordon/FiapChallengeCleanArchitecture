@@ -1,5 +1,4 @@
 using Domain.Entities.Food;
-using Domain.Entities.ThirdPartyRegister;
 using Domain.Enums.Food;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -13,7 +12,7 @@ public class FoodMapping : IEntityTypeConfiguration<Food>
         builder.ToTable(nameof(Food));
 
         builder.HasKey(x => x.Id);
-        
+
         builder.Property(p => p.Id)
             .IsRequired()
             .HasColumnType("GUID");
@@ -23,13 +22,13 @@ public class FoodMapping : IEntityTypeConfiguration<Food>
             .HasConversion(
                 v => v.Name,
                 v => new FoodName(v));
-        
+
         builder.Property(p => p.State)
             .IsRequired()
             .HasConversion(
                 v => v.ToString(),
                 v => (State)Enum.Parse(typeof(State), v));
-        
+
         builder.Property(p => p.IsPerishable)
             .IsRequired()
             .HasColumnType("BOOL");

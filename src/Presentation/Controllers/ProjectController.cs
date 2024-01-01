@@ -10,14 +10,14 @@ namespace Presentation.Controllers;
 public class ProjectController : Controller
 {
     private readonly IDonorService _donorService;
-    private readonly IReceiverService _receiverService;
     private readonly IFoodService _foodService;
     private readonly IPackageReceivedService _packageReceivedService;
     private readonly IPackageSentService _packageSentService;
-    
+    private readonly IReceiverService _receiverService;
+
     public ProjectController(
-        IDonorService donorService, IReceiverService receiverService, 
-        IFoodService foodService, IPackageReceivedService packageReceivedService, 
+        IDonorService donorService, IReceiverService receiverService,
+        IFoodService foodService, IPackageReceivedService packageReceivedService,
         IPackageSentService packageSentService)
     {
         _donorService = donorService;
@@ -34,12 +34,12 @@ public class ProjectController : Controller
         {
             Donors = _donorService.GetAll(),
             Receivers = _receiverService.GetAll(),
-            Foods = _foodService.GetAll(),
+            Foods = _foodService.GetAll()
         };
-        
+
         return View(viewModel);
     }
-    
+
     [HttpGet("/projectpackages")]
     public IActionResult ProjectPackages()
     {
@@ -51,7 +51,7 @@ public class ProjectController : Controller
             PackagesReceived = _packageReceivedService.GetAll(),
             PackagesSent = _packageSentService.GetAll()
         };
-        
+
         return View(viewModel);
     }
 

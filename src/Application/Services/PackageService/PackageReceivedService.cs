@@ -9,8 +9,8 @@ namespace Application.Services.PackageService;
 
 public class PackageReceivedService : IPackageReceivedService
 {
-    private readonly IBaseRepository<PackageReceived> _repository;
     private readonly IMapper _mapper;
+    private readonly IBaseRepository<PackageReceived> _repository;
 
     public PackageReceivedService(IBaseRepository<PackageReceived> repository, IMapper mapper)
     {
@@ -47,7 +47,7 @@ public class PackageReceivedService : IPackageReceivedService
         var result = await _repository.FindAsync(id);
         if (result is null)
             throw new ResourceNotFoundException("No value found.");
-        
+
         result.UpdateDetails(dto.FoodList, dto.DonorId);
         var savedResult = _repository.Update(result);
         await _repository.SaveChangesAsync();

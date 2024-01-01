@@ -4,7 +4,6 @@ using Application.Interfaces.ThirdParty;
 using Application.Services.FoodService;
 using Application.Services.PackageService;
 using Application.Services.ThirdPartyService;
-using Domain.Entities.Package;
 using Domain.Interfaces;
 using Infrastructure;
 using Infrastructure.Database.Repositories;
@@ -29,14 +28,14 @@ public static class ServiceCollectionExtension
     {
         services.AddDbContext<DatabaseContext>(options =>
             options.UseSqlite(configuration.GetConnectionString("SQLiteConnection")));
-        
+
         services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         services.AddScoped<IDonorService, DonorService>();
         services.AddScoped<IReceiverService, ReceiverService>();
         services.AddScoped<IFoodService, FoodService>();
         services.AddScoped<IPackageReceivedService, PackageReceivedService>();
         services.AddScoped<IPackageSentService, PackageSentService>();
-        
+
         return (ServiceCollection)services;
     }
 }

@@ -34,16 +34,16 @@ public class FoodController : Controller
         };
         return View(stateViewModel);
     }
-    
+
     [HttpGet("FoodUpdate/{id}")]
     public async Task<IActionResult> FoodUpdate(Guid id)
     {
         var foodDto = await _foodService.GetById(id);
         var stateOptions = Enum.GetValues(typeof(State))
             .Cast<State>()
-            .Select(s => new SelectListItem 
-            { 
-                Text = s.ToString(), 
+            .Select(s => new SelectListItem
+            {
+                Text = s.ToString(),
                 Value = ((int)s).ToString(),
                 Selected = s == foodDto.State
             });
@@ -64,7 +64,7 @@ public class FoodController : Controller
 
         return RedirectToAction("ProjectEntities", "Project");
     }
-    
+
 
     [HttpPost("FoodNew")]
     public async Task<IActionResult> FoodNew(FoodUpdateResponseViewModel updateResponseViewModel)
@@ -83,14 +83,14 @@ public class FoodController : Controller
 
         return RedirectToAction("ProjectEntities", "Project");
     }
-    
+
     [HttpPost("FoodUpdated")]
     public async Task<IActionResult> FoodUpdated(FoodUpdateResponseViewModel formViewModel)
     {
-        var dto = new FoodRequestDto()
+        var dto = new FoodRequestDto
         {
             FoodName = new FoodName(formViewModel.FoodName),
-            State =  (State)formViewModel.State,
+            State = formViewModel.State,
             IsPerishable = formViewModel.IsPerishable,
             ExpirationDate = formViewModel.ExpirationDate
         };

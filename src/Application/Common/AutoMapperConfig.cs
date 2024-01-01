@@ -15,35 +15,35 @@ public class AutoMapperConfig : Profile
         // DONOR
         CreateMap<Donor, DonorRequestDto>();
         CreateMap<DonorRequestDto, Donor>();
-        
+
         CreateMap<Donor, DonorResponseDto>();
         CreateMap<DonorResponseDto, Donor>();
-        
+
         // RECEIVER
         CreateMap<Receiver, ReceiverRequestDto>();
         CreateMap<ReceiverRequestDto, Receiver>();
-        
+
         CreateMap<Receiver, ReceiverResponseDto>();
         CreateMap<ReceiverResponseDto, Receiver>();
-        
+
         // FOOD
         CreateMap<Food, FoodRequestDto>();
         CreateMap<FoodRequestDto, Food>();
-        
+
         CreateMap<Food, FoodResponseDto>();
         CreateMap<FoodResponseDto, Food>();
-        
+
         // PACKAGE
-        
+
         CreateMap<PackageReceived, PackageReceivedRequestDto>();
         CreateMap<PackageReceivedRequestDto, PackageReceived>();
-        
+
         CreateMap<PackageReceived, PackageReceivedResponseDto>();
         CreateMap<PackageReceivedResponseDto, PackageReceived>();
-        
+
         CreateMap<PackageSent, PackageSentRequestDto>();
         CreateMap<PackageSentRequestDto, PackageSent>();
-        
+
         CreateMap<PackageSent, PackageSentResponseDto>();
         CreateMap<PackageSentResponseDto, PackageSent>();
     }

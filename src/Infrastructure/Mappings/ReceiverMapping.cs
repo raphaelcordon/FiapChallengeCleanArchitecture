@@ -11,7 +11,7 @@ public class ReceiverMapping : IEntityTypeConfiguration<Receiver>
         builder.ToTable(nameof(Receiver));
 
         builder.HasKey(x => x.Id);
-        
+
         builder.Property(p => p.Id)
             .IsRequired()
             .HasColumnType("GUID");
@@ -21,7 +21,7 @@ public class ReceiverMapping : IEntityTypeConfiguration<Receiver>
             .HasConversion(
                 v => v.Name,
                 v => new ThirdPartyName(v));
-        
+
         builder.Property(p => p.IsCompany)
             .IsRequired()
             .HasColumnType("BOOL");

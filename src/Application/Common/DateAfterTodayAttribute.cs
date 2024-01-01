@@ -9,14 +9,10 @@ public class DateAfterTodayAttribute : ValidationAttribute
         if (value is DateOnly date)
         {
             if (date > DateOnly.FromDateTime(DateTime.Today))
-            {
                 return ValidationResult.Success;
-            }
-            else
-            {
-                return new ValidationResult("The date must be after today's date.");
-            }
+            return new ValidationResult("The date must be after today's date.");
         }
+
         return new ValidationResult("Invalid date format.");
     }
 }

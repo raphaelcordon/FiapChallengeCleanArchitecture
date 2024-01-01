@@ -1,8 +1,6 @@
-using System.ComponentModel.DataAnnotations;
 using Application.Common;
 using Domain.Entities.Food;
 using Domain.Enums.Food;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Application.Dtos.FoodDtos;
 

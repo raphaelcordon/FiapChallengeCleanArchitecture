@@ -1,5 +1,3 @@
-using Application.Dtos.ThirdPartyDtos;
-
 namespace Presentation.Models;
 
 public class DonorFormViewModel

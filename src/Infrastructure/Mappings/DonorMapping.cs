@@ -22,7 +22,7 @@ public class DonorMapping : IEntityTypeConfiguration<Donor>
             .HasConversion(
                 v => v.Name,
                 v => new ThirdPartyName(v));
-        
+
         builder.Property(p => p.IsCompany)
             .IsRequired()
             .HasColumnType("BOOL");

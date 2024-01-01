@@ -49,7 +49,7 @@ public class FoodController : ControllerBase
             return NotFound(ex.Message);
         }
     }
-    
+
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(Guid id)
     {
@@ -73,7 +73,7 @@ public class FoodController : ControllerBase
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        
+
         var result = await _foodService.Edit(id, dto);
         return Ok(result);
     }

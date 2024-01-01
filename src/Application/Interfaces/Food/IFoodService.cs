@@ -1,5 +1,4 @@
 using Application.Dtos.FoodDtos;
-using Application.Dtos.ThirdPartyDtos;
 
 namespace Application.Interfaces.Food;
 

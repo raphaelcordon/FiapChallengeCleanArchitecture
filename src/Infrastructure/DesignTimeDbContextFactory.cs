@@ -12,7 +12,7 @@ public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<DatabaseCo
 
         var configuration = new ConfigurationBuilder()
             .SetBasePath(applicationProjectPath)
-            .AddJsonFile("appsettings.json", optional: false)
+            .AddJsonFile("appsettings.json", false)
             .Build();
 
         var connectionString = configuration.GetConnectionString("SQLiteConnection");

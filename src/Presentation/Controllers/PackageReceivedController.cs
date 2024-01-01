@@ -9,11 +9,12 @@ namespace Presentation.Controllers;
 
 public class PackageReceivedController : Controller
 {
-    private readonly IPackageReceivedService _packageReceived;
     private readonly IDonorService _donorService;
     private readonly IFoodService _foodService;
+    private readonly IPackageReceivedService _packageReceived;
 
-    public PackageReceivedController(IPackageReceivedService packageReceivedService, IDonorService donorService, IFoodService foodService)
+    public PackageReceivedController(IPackageReceivedService packageReceivedService, IDonorService donorService,
+        IFoodService foodService)
     {
         _packageReceived = packageReceivedService;
         _donorService = donorService;
@@ -30,7 +31,7 @@ public class PackageReceivedController : Controller
         };
         return View(viewModel);
     }
-    
+
     [HttpGet("PackageReceivedUpdate/{id:guid}")]
     public async Task<IActionResult> PackageReceivedUpdate(Guid id)
     {
@@ -51,7 +52,7 @@ public class PackageReceivedController : Controller
 
         return RedirectToAction("ProjectPackages", "Project");
     }
-    
+
 
     [HttpPost("PackageReceivedNew")]
     public async Task<IActionResult> PackageReceivedNew(PackageReceivedResponseViewModels formViewModel)
@@ -61,13 +62,13 @@ public class PackageReceivedController : Controller
             FoodList = formViewModel.SelectedFoods,
             DonorId = formViewModel.DonorId
         };
-        
+
         await _packageReceived.Insert(dto);
-        
+
         TempData["ConfirmationMessage"] = "PackageReceived created successfully";
         return RedirectToAction("ProjectPackages", "Project");
     }
-    
+
     [HttpPost("PackageReceivedUpdated")]
     public async Task<IActionResult> PackageReceivedUpdated(PackageReceivedResponseViewModels formViewModel)
     {

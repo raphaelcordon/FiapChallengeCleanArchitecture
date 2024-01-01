@@ -49,7 +49,7 @@ public class ReceiverController : ControllerBase
             return NotFound(ex.Message);
         }
     }
-    
+
     [HttpGet("{id:guid}")]
     public async Task<IActionResult> GetById(Guid id)
     {
@@ -73,7 +73,7 @@ public class ReceiverController : ControllerBase
     {
         if (!ModelState.IsValid)
             return BadRequest(ModelState);
-        
+
         var result = await _receiverService.Edit(id, dto);
         return Ok(result);
     }

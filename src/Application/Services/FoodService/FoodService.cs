@@ -11,8 +11,8 @@ namespace Application.Services.FoodService;
 
 public class FoodService : IFoodService
 {
-    private readonly IBaseRepository<Food> _repository;
     private readonly IMapper _mapper;
+    private readonly IBaseRepository<Food> _repository;
 
     public FoodService(IBaseRepository<Food> repository, IMapper mapper)
     {
@@ -50,11 +50,11 @@ public class FoodService : IFoodService
     {
         if (IsDateExpired(dto.ExpirationDate))
             throw new DataException("Food expiration cannot be a past date or today");
-        
+
         var result = await _repository.FindAsync(id);
         if (result is null)
             throw new ResourceNotFoundException("No value found.");
-        
+
         result.UpdateDetails(dto.FoodName, dto.State, dto.IsPerishable, dto.ExpirationDate);
         var savedResult = _repository.Update(result);
         await _repository.SaveChangesAsync();

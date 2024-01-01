@@ -1,5 +1,4 @@
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@using Microsoft.AspNetCore.Html
 @model Presentation.Models.PackageReceivedModels.PackageReceivedUpdateViewModels
 <div>
     <h3 class="text-center pb-1">PACKAGE - R E C E I V E D - </h3>
@@ -38,7 +37,7 @@
                             {
                                 foreach (var option in Model.Foods)
                                 {
-                                    bool isChecked = Model.Package.FoodList.Contains(option.Id);
+                                    var isChecked = Model.Package.FoodList.Contains(option.Id);
                                     <input type="checkbox" id="@option.Id" name="SelectedFoods" value="@option.Id" @(isChecked ? "checked" : "")>
                                     <label for="@option.Id"> @option.FoodName.Name</label>
                                     <br>

@@ -1,5 +1,3 @@
-using Domain.Entities.ThirdPartyRegister;
-
 namespace Application.Dtos.PackageDtos;
 
 public class PackageReceivedRequestDto

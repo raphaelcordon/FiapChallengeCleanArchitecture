@@ -20,7 +20,7 @@ public class DonorController : Controller
     {
         return View();
     }
-    
+
     [HttpGet("DonorUpdate/{id}")]
     public async Task<IActionResult> DonorUpdate(Guid id)
     {
@@ -36,7 +36,7 @@ public class DonorController : Controller
 
         return RedirectToAction("ProjectEntities", "Project");
     }
-    
+
 
     [HttpPost("DonorNew")]
     public async Task<IActionResult> DonorNew(DonorFormViewModel formViewModel)
@@ -53,11 +53,11 @@ public class DonorController : Controller
 
         return RedirectToAction("ProjectEntities", "Project");
     }
-    
+
     [HttpPost("DonorUpdated")]
     public async Task<IActionResult> DonorUpdated(DonorFormViewModel formViewModel)
     {
-        var dto = new DonorRequestDto()
+        var dto = new DonorRequestDto
         {
             Name = new ThirdPartyName(formViewModel.Name),
             IsCompany = formViewModel.IsCompany

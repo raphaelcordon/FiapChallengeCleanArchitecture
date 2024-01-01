@@ -9,8 +9,8 @@ namespace Application.Services.ThirdPartyService;
 
 public class ReceiverService : IReceiverService
 {
-    private readonly IBaseRepository<Receiver> _repository;
     private readonly IMapper _mapper;
+    private readonly IBaseRepository<Receiver> _repository;
 
     public ReceiverService(IBaseRepository<Receiver> repository, IMapper mapper)
     {
@@ -47,7 +47,7 @@ public class ReceiverService : IReceiverService
         var result = await _repository.FindAsync(id);
         if (result is null)
             throw new ResourceNotFoundException("No value found.");
-        
+
         result.UpdateDetails(dto.Name, dto.IsCompany);
         var savedResult = _repository.Update(result);
         await _repository.SaveChangesAsync();
@@ -60,7 +60,7 @@ public class ReceiverService : IReceiverService
         var result = await _repository.FindAsync(id);
         if (result is null)
             throw new ResourceNotFoundException("No value found.");
-        
+
         await _repository.DeleteAsync(id);
         await _repository.SaveChangesAsync();
     }

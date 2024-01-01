@@ -2,7 +2,7 @@
 <div>
     <h3 class="text-center pb-1">D O N O R</h3>
     <hr/>
-    
+
     <div class="container">
         <form asp-controller="Donor" asp-action="DonorUpdated" method="post">
             <input type="hidden" name="Id" value="@Model.Id"/>
@@ -12,7 +12,7 @@
                     <tr>
                         <td>
                             <label for="Name">Name: </label>
-                            <input type="text"  id="Name" name="Name" required value="@Model.Name.Name" autocomplete="@Model.Name.Name"/>
+                            <input type="text" id="Name" name="Name" required value="@Model.Name.Name" autocomplete="@Model.Name.Name"/>
                         </td>
                         <td>
                             <table>
