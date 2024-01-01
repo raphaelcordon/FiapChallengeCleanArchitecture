@@ -19,34 +19,34 @@
 ### Donor / Receiver / Food 
 Follow the structure below
 >- **Post**
-   >    - ![readmeimgs/EntityPost.png](readmeimgs/EntityPost.png)
+   >    - ![readmeImgs/EntityPost.png](readmeImgs/EntityPost.png)
 
 >- **Get all**
-   >    - ![readmeimgs/EntityGetAll.png](readmeimgs/EntityGetAll.png)
+   >    - ![readmeImgs/EntityGetAll.png](readmeImgs/EntityGetAll.png)
 
 >- **Get by Id**
-   >    - ![readmeimgs/EntityGetId.png](readmeimgs/EntityGetId.png)
+   >    - ![readmeImgs/EntityGetId.png](readmeImgs/EntityGetId.png)
 
 >- **Put**
-   >    - ![readmeimgs/EntityPut.png](readmeimgs/EntityPut.png)
+   >    - ![readmeImgs/EntityPut.png](readmeImgs/EntityPut.png)
 
 >- **Delete**
-   >    - ![readmeimgs/EntityDelete.png](readmeimgs/EntityDelete.png)
+   >    - ![readmeImgs/EntityDelete.png](readmeImgs/EntityDelete.png)
 
 
 ### Package Received / Package Sent
 Follow the structure below
 >- **Post**
-   >    - ![readmeimgs/PackagePost.png](readmeimgs/PackagePost.png)
+   >    - ![readmeImgs/PackagePost.png](readmeImgs/PackagePost.png)
 
 >- **Get all**
-   >    - ![readmeimgs/PackageGetAll.png](readmeimgs/PackageGetAll.png)
+   >    - ![readmeImgs/PackageGetAll.png](readmeImgs/PackageGetAll.png)
 
 >- **Get by Id**
-   >    - ![readmeimgs/PackageGetId.png](readmeimgs/PackageGetId.png)
+   >    - ![readmeImgs/PackageGetId.png](readmeImgs/PackageGetId.png)
 
 >- **Put**
-   >    - ![readmeimgs/PackagePut.png](readmeimgs/PackagePut.png)
+   >    - ![readmeImgs/PackagePut.png](readmeImgs/PackagePut.png)
 
 >- **Delete**
-   >    - ![readmeimgs/PackageDelete.png](readmeimgs/PackageDelete.png)
+   >    - ![readmeImgs/PackageDelete.png](readmeImgs/PackageDelete.png)
