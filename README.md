@@ -47,14 +47,16 @@ Create an architecture and application that:
 ## **APPLICATION**
 
 - Framework net7.0
-- Database: MySQL
+- Database: SQLite
 
 ---
 
 ## **INSTRUCTIONS**
 
 - This is a study project.
-- << TBD >>
+- Manually run "dotnet ef database update" to locally create the database file.
+- Run both, the **Application** and the **Presentation** apps.
+- Application layer has a Swagger available. Further instructions here.
 
 ---
 
@@ -62,7 +64,9 @@ Create an architecture and application that:
 
 ### src
 >- **Application**
-   >    - tbd
+   >    - API Services
+   >    - Dtos
+   >    - API Controllers
 
 >- **Domain**
    >    - Entities
@@ -70,7 +74,14 @@ Create an architecture and application that:
    >    - Interfaces
 
 >- **Infrastructure**
-   >    - tbd
+   >    - Database
+   >    - Mappings
+   >    - Migrations
+
+>- **Presentation**
+   >    - Controllers
+   >    - Models
+   >    - Views
 
 ### tests
 >- **tbd**
@@ -78,4 +89,18 @@ Create an architecture and application that:
 
 ## **FUNCTIONALITIES**
 
-tbd
+### CRUD Main Entities
+>- **Donors**
+>- **Receivers**
+>- **Food**
+
+### CRUD Packages
+>- **Packages Received**
+   >    - With Donor Id
+   >    - With List of Food Ids
+>- **Packages Sent**
+   >    - With Received Id
+   >    - With List of Food Ids
+
+---
+
