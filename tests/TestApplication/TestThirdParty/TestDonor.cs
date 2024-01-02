@@ -53,4 +53,89 @@ public class TestDonor
         var expectedResult = _mapper.Map<DonorResponseDto>(donor);
         result.Should().BeEquivalentTo(expectedResult);
     }
+
+    [Fact]
+    public async Task ShouldGetAllDonorsSucessfullyAsync()
+    {
+        var donorName = new ThirdPartyName("TestDonor");
+        var donors = new List<Donor>
+        {
+            new Donor { IsCompany = true, Name = donorName },
+            new Donor { IsCompany = false, Name = donorName }
+        };
+
+        _mock.Setup(r => r.List()).Returns(donors);
+
+        var result = _service.GetAll();
+
+        var expectedResult = _mapper.Map<IEnumerable<DonorResponseDto>>(donors);
+        result.Should().BeEquivalentTo(expectedResult);
+    }
+
+    [Fact]
+    public async Task ShouldEditDonorSuccessfullyAsync()
+    {
+        var donorName = new ThirdPartyName("TestDonor");
+        var donor = new Donor { Name = donorName, IsCompany = true };
+        var updatedDonor = new Donor { Name = donorName, IsCompany = false };
+
+        _mock.Setup(r => r.FindAsync(donor.Id)).ReturnsAsync(donor);
+        _mock.Setup(r => r.Update(donor)).Returns(updatedDonor);
+
+        var donorRequestEditDto = new DonorRequestDto
+        {
+            Name = updatedDonor.Name, IsCompany = updatedDonor.IsCompany
+        };
+        var result = await _service.Edit(donor.Id, donorRequestEditDto);
+
+        var expectedResult = _mapper.Map<DonorResponseDto>(updatedDonor);
+        result.Should().BeEquivalentTo(expectedResult);
+    }
+    
+    [Fact]
+    public async Task ShouldEditDonorFailed()
+    {
+        var donorId = Guid.NewGuid();
+        var donorName = new ThirdPartyName("TestDonor");
+        var donor = new Donor { Name = donorName, IsCompany = true };
+
+        _mock.Setup(r => r.FindAsync(donorId)).ReturnsAsync(donor);
+
+        var ex = await Record.ExceptionAsync(async () => await _service.Edit(Guid.NewGuid(), new DonorRequestDto
+        {
+            Name = new ThirdPartyName(""), IsCompany = false
+        }));
+            
+        Assert.Equal($"No value found.", ex.Message);
+        Assert.Equal(typeof(ResourceNotFoundException), ex.GetType());
+    }
+    
+    [Fact]
+    public async Task ShouldDeleteDonorSuccessfullyAsync()
+    {
+        var donorId = Guid.NewGuid();
+        _mock.Setup(r => r.FindAsync(donorId)).ReturnsAsync(new Donor());
+
+        await _service.Delete(donorId);
+            
+        _mock.Verify(m => m.DeleteAsync(donorId), Times.Once);
+        _mock.Verify(m => m.SaveChangesAsync(), Times.Once);
+    }
+    
+    [Fact]
+    public async Task ShouldDeleteDonorFailedAsync()
+    {
+        var donorId = Guid.NewGuid();
+        Donor donor = null;
+
+        _mock.Setup(r => r.FindAsync(donorId)).ReturnsAsync(donor);
+            
+        var ex = await Record.ExceptionAsync(async () => await _service.Delete(donorId));
+            
+        Assert.Equal($"No value found.", ex.Message);
+        Assert.Equal(typeof(ResourceNotFoundException), ex.GetType());
+            
+        _mock.Verify(m => m.DeleteAsync(donorId), Times.Never);
+        _mock.Verify(m => m.SaveChangesAsync(), Times.Never);
+    }
 }

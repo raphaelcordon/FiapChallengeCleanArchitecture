@@ -2,5 +2,11 @@
 	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=e98d1551_002D8f54_002D496f_002D8199_002D33a6711d689a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="TestCreateDonorSuccessfullyAsync" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;
   &lt;TestAncestor&gt;
     &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestDonor.ShouldGetDonorByIdSuccessfullyAsync&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestDonor.ShouldGetAllDonorsSucessfullyAsync&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestDonor.ShouldEditDonorSuccessfullyAsync&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestDonor.ShouldDeleteDonorSuccessfullyAsync&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestDonor.ShouldDeleteDonorFailedAsync&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestDonor.ShouldEditDonorFailed&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestReceiver&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
