@@ -2,7 +2,7 @@ using Application.Dtos.ThirdPartyDtos;
 using Application.Interfaces.ThirdParty;
 using Domain.Entities.ThirdPartyRegister;
 using Microsoft.AspNetCore.Mvc;
-using Presentation.Models;
+using Presentation.Models.DonorModels;
 
 namespace Presentation.Controllers;
 
@@ -21,7 +21,7 @@ public class DonorController : Controller
         return View();
     }
 
-    [HttpGet("DonorUpdate/{id}")]
+    [HttpGet("DonorUpdate/{id:guid}")]
     public async Task<IActionResult> DonorUpdate(Guid id)
     {
         var viewModel = await _donorService.GetById(id);
@@ -29,7 +29,7 @@ public class DonorController : Controller
         return View(viewModel);
     }
 
-    [HttpGet("DonorDelete/{id}")]
+    [HttpGet("DonorDelete/{id:guid}")]
     public async Task<IActionResult> DonorDelete(Guid id)
     {
         await _donorService.Delete(id);
@@ -43,11 +43,11 @@ public class DonorController : Controller
     {
         var dto = new DonorRequestDto
         {
-            Name = new ThirdPartyName(formViewModel.Name),
+            Name = new ThirdPartyName(formViewModel.Name!),
             IsCompany = formViewModel.IsCompany
         };
 
-        var createdDonor = await _donorService.Insert(dto);
+        await _donorService.Insert(dto);
 
         TempData["ConfirmationMessage"] = "Donor created successfully";
 
@@ -59,11 +59,11 @@ public class DonorController : Controller
     {
         var dto = new DonorRequestDto
         {
-            Name = new ThirdPartyName(formViewModel.Name),
+            Name = new ThirdPartyName(formViewModel.Name!),
             IsCompany = formViewModel.IsCompany
         };
         var id = formViewModel.Id;
-        var createdDonor = await _donorService.Edit(id, dto);
+        await _donorService.Edit(id, dto);
 
         TempData["ConfirmationMessage"] = "Donor created successfully";
         return RedirectToAction("ProjectEntities", "Project");

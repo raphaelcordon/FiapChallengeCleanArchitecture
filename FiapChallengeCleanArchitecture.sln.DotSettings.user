@@ -8,5 +8,6 @@
     &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestDonor.ShouldDeleteDonorFailedAsync&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestDonor.ShouldEditDonorFailed&lt;/TestId&gt;
     &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestThirdParty.TestReceiver&lt;/TestId&gt;
+    &lt;TestId&gt;xUnit::942D5140-7FA5-4ACF-8F17-74DA17702B93::net7.0::TestApplication.TestFood.TestFood&lt;/TestId&gt;
   &lt;/TestAncestor&gt;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

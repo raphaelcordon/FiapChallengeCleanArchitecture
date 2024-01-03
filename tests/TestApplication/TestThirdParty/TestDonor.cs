@@ -55,7 +55,7 @@ public class TestDonor
     }
 
     [Fact]
-    public async Task ShouldGetAllDonorsSucessfullyAsync()
+    public Task ShouldGetAllDonorsSuccessfullyAsync()
     {
         var donorName = new ThirdPartyName("TestDonor");
         var donors = new List<Donor>
@@ -70,6 +70,7 @@ public class TestDonor
 
         var expectedResult = _mapper.Map<IEnumerable<DonorResponseDto>>(donors);
         result.Should().BeEquivalentTo(expectedResult);
+        return Task.CompletedTask;
     }
 
     [Fact]
@@ -106,7 +107,7 @@ public class TestDonor
             Name = new ThirdPartyName(""), IsCompany = false
         }));
             
-        Assert.Equal($"No value found.", ex.Message);
+        Assert.Equal($"No value found.", ex!.Message);
         Assert.Equal(typeof(ResourceNotFoundException), ex.GetType());
     }
     
@@ -126,13 +127,13 @@ public class TestDonor
     public async Task ShouldDeleteDonorFailedAsync()
     {
         var donorId = Guid.NewGuid();
-        Donor donor = null;
+        Donor donor = null!;
 
         _mock.Setup(r => r.FindAsync(donorId)).ReturnsAsync(donor);
             
         var ex = await Record.ExceptionAsync(async () => await _service.Delete(donorId));
             
-        Assert.Equal($"No value found.", ex.Message);
+        Assert.Equal($"No value found.", ex!.Message);
         Assert.Equal(typeof(ResourceNotFoundException), ex.GetType());
             
         _mock.Verify(m => m.DeleteAsync(donorId), Times.Never);

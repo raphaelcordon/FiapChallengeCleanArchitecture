@@ -5,7 +5,7 @@ namespace Presentation.Models;
 
 public class ProjectEntitiesViewModel
 {
-    public IEnumerable<DonorResponseDto> Donors { get; set; }
-    public IEnumerable<ReceiverResponseDto> Receivers { get; set; }
-    public IEnumerable<FoodResponseDto> Foods { get; set; }
+    public IEnumerable<DonorResponseDto>? Donors { get; set; }
+    public IEnumerable<ReceiverResponseDto>? Receivers { get; set; }
+    public IEnumerable<FoodResponseDto>? Foods { get; set; }
 }

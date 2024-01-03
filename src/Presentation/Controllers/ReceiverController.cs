@@ -2,7 +2,7 @@ using Application.Dtos.ThirdPartyDtos;
 using Application.Interfaces.ThirdParty;
 using Domain.Entities.ThirdPartyRegister;
 using Microsoft.AspNetCore.Mvc;
-using Presentation.Models;
+using Presentation.Models.ReceiverModels;
 
 namespace Presentation.Controllers;
 
@@ -21,7 +21,7 @@ public class ReceiverController : Controller
         return View();
     }
 
-    [HttpGet("ReceiverUpdate/{id}")]
+    [HttpGet("ReceiverUpdate/{id:guid}")]
     public async Task<IActionResult> ReceiverUpdate(Guid id)
     {
         var viewModel = await _receiverService.GetById(id);
@@ -29,7 +29,7 @@ public class ReceiverController : Controller
         return View(viewModel);
     }
 
-    [HttpGet("ReceiverDelete/{id}")]
+    [HttpGet("ReceiverDelete/{id:guid}")]
     public async Task<IActionResult> ReceiverDelete(Guid id)
     {
         await _receiverService.Delete(id);
@@ -43,11 +43,11 @@ public class ReceiverController : Controller
     {
         var dto = new ReceiverRequestDto
         {
-            Name = new ThirdPartyName(formViewModel.Name),
+            Name = new ThirdPartyName(formViewModel.Name!),
             IsCompany = formViewModel.IsCompany
         };
 
-        var createdReceiver = await _receiverService.Insert(dto);
+        await _receiverService.Insert(dto);
 
         TempData["ConfirmationMessage"] = "Receiver created successfully";
 
@@ -59,11 +59,11 @@ public class ReceiverController : Controller
     {
         var dto = new ReceiverRequestDto
         {
-            Name = new ThirdPartyName(formViewModel.Name),
+            Name = new ThirdPartyName(formViewModel.Name!),
             IsCompany = formViewModel.IsCompany
         };
         var id = formViewModel.Id;
-        var createdReceiver = await _receiverService.Edit(id, dto);
+        await _receiverService.Edit(id, dto);
 
         TempData["ConfirmationMessage"] = "Receiver created successfully";
         return RedirectToAction("ProjectEntities", "Project");

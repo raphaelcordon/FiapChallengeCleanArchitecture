@@ -13,7 +13,7 @@
                         <td>
                             <label for="ReceiverId">Received by: </label>
                             <select id="ReceiverId" name="ReceiverId" class="form-control" required>
-                                @if (Model?.Receivers != null)
+                                @if (Model.Receivers != null)
                                 {
                                     foreach (var option in Model.Receivers)
                                     {
@@ -26,7 +26,7 @@
                     </tr>
                     <tr>
                         <td>
-                            @if (Model?.Foods != null)
+                            @if (Model.Foods != null)
                             {
                                 foreach (var option in Model.Foods)
                                 {

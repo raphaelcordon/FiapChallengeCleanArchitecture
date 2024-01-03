@@ -1,4 +1,4 @@
-@model StateViewModel
+@model Presentation.Models.FoodModels.StateViewModel
 @{
     var tomorrow = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
 }
@@ -18,7 +18,7 @@
                             <input type="text" id="Name" name="FoodName" required/>
                         </td>
                         <td>
-                            <label for="State">State: </label>
+                            <label>State: </label>
                             @using (Html.BeginForm())
                             {
                                 @Html.DropDownListFor(m => m.SelectedState, Model.States)

@@ -6,7 +6,7 @@
 
     <div class="container">
         <form asp-controller="PackageReceived" asp-action="PackageReceivedUpdated" method="post">
-            <input type="hidden" name="Id" value="@Model.Package.Id"/>
+            <input type="hidden" name="Id" value="@Model.Package!.Id"/>
             <fieldset>
                 <legend>Add/Edit Package Received</legend>
                 <table class="table w-50">
@@ -14,7 +14,7 @@
                         <td>
                             <label for="DonorId">Donor: </label>
                             <select id="DonorId" name="DonorId" class="form-control" required>
-                                @if (Model?.Donors != null)
+                                @if (Model.Donors != null)
                                 {
                                     foreach (var option in Model.Donors)
                                     {
@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                         <td>
-                            @if (Model?.Foods != null)
+                            @if (Model.Foods != null)
                             {
                                 foreach (var option in Model.Foods)
                                 {

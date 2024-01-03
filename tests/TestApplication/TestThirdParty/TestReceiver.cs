@@ -55,7 +55,7 @@ public class TestReceiver
     }
 
     [Fact]
-    public async Task ShouldGetAllReceiversSucessfullyAsync()
+    public Task ShouldGetAllReceiversSucessfullyAsync()
     {
         var receiverName = new ThirdPartyName("TestReceiver");
         var receivers = new List<Receiver>
@@ -70,6 +70,7 @@ public class TestReceiver
 
         var expectedResult = _mapper.Map<IEnumerable<ReceiverResponseDto>>(receivers);
         result.Should().BeEquivalentTo(expectedResult);
+        return Task.CompletedTask;
     }
 
     [Fact]
@@ -106,7 +107,7 @@ public class TestReceiver
             Name = new ThirdPartyName(""), IsCompany = false
         }));
             
-        Assert.Equal($"No value found.", ex.Message);
+        Assert.Equal($"No value found.", ex!.Message);
         Assert.Equal(typeof(ResourceNotFoundException), ex.GetType());
     }
     
@@ -126,13 +127,13 @@ public class TestReceiver
     public async Task ShouldDeleteReceiverFailedAsync()
     {
         var receiverId = Guid.NewGuid();
-        Receiver receiver = null;
+        Receiver receiver = null!;
 
         _mock.Setup(r => r.FindAsync(receiverId)).ReturnsAsync(receiver);
             
         var ex = await Record.ExceptionAsync(async () => await _service.Delete(receiverId));
             
-        Assert.Equal($"No value found.", ex.Message);
+        Assert.Equal($"No value found.", ex!.Message);
         Assert.Equal(typeof(ResourceNotFoundException), ex.GetType());
             
         _mock.Verify(m => m.DeleteAsync(receiverId), Times.Never);

@@ -13,9 +13,9 @@ public class FoodController : Controller
 {
     private readonly IFoodService _foodService;
 
-    public FoodController(IFoodService FoodService)
+    public FoodController(IFoodService foodService)
     {
-        _foodService = FoodService;
+        _foodService = foodService;
     }
 
     [HttpGet("/FoodCreate")]
@@ -35,7 +35,7 @@ public class FoodController : Controller
         return View(stateViewModel);
     }
 
-    [HttpGet("FoodUpdate/{id}")]
+    [HttpGet("FoodUpdate/{id:guid}")]
     public async Task<IActionResult> FoodUpdate(Guid id)
     {
         var foodDto = await _foodService.GetById(id);
@@ -57,7 +57,7 @@ public class FoodController : Controller
         return View(viewModel);
     }
 
-    [HttpGet("FoodDelete/{id}")]
+    [HttpGet("FoodDelete/{id:guid}")]
     public async Task<IActionResult> FoodDelete(Guid id)
     {
         await _foodService.Delete(id);
@@ -71,13 +71,13 @@ public class FoodController : Controller
     {
         var dto = new FoodRequestDto
         {
-            FoodName = new FoodName(updateResponseViewModel.FoodName),
+            FoodName = new FoodName(updateResponseViewModel.FoodName!),
             State = updateResponseViewModel.State,
             IsPerishable = updateResponseViewModel.IsPerishable,
             ExpirationDate = updateResponseViewModel.ExpirationDate
         };
 
-        var createdFood = await _foodService.Insert(dto);
+        await _foodService.Insert(dto);
 
         TempData["ConfirmationMessage"] = "Food created successfully";
 
@@ -89,7 +89,7 @@ public class FoodController : Controller
     {
         var dto = new FoodRequestDto
         {
-            FoodName = new FoodName(formViewModel.FoodName),
+            FoodName = new FoodName(formViewModel.FoodName!),
             State = formViewModel.State,
             IsPerishable = formViewModel.IsPerishable,
             ExpirationDate = formViewModel.ExpirationDate

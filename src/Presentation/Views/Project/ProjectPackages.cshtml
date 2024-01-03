@@ -26,9 +26,9 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.PackagesReceived)
+            @foreach (var item in Model.PackagesReceived!)
             {
-                var donorName = Model.Donors.FirstOrDefault(d => d.Id == item.DonorId);
+                var donorName = Model.Donors!.FirstOrDefault(d => d.Id == item.DonorId);
                 <tr>
                     <td>
                         @if (donorName != null)
@@ -43,7 +43,7 @@
                     <td>
                         @foreach (var foodId in item.FoodList)
                         {
-                            var foodName = Model.Foods.FirstOrDefault(f => f.Id == foodId)?.FoodName.Name;
+                            var foodName = Model.Foods!.FirstOrDefault(f => f.Id == foodId)?.FoodName.Name;
 
                             if (foodName != null)
                             {
@@ -76,15 +76,15 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.PackagesSent)
+            @foreach (var item in Model.PackagesSent!)
             {
-                var receiverName = Model.Receivers.FirstOrDefault(d => d.Id == item.ReceiverId);
+                var receiverName = Model.Receivers!.FirstOrDefault(d => d.Id == item.ReceiverId);
                 <tr>
-                    <td>@receiverName.Name.Name</td>
+                    <td>@receiverName!.Name.Name</td>
                     <td>
                         @foreach (var foodId in item.FoodList)
                         {
-                            var foodName = Model.Foods.FirstOrDefault(f => f.Id == foodId)?.FoodName.Name;
+                            var foodName = Model.Foods!.FirstOrDefault(f => f.Id == foodId)?.FoodName.Name;
 
                             if (foodName != null)
                             {

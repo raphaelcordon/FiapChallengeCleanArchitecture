@@ -1,4 +1,4 @@
-@model FoodUpdateViewModel
+@model Presentation.Models.FoodModels.FoodUpdateViewModel
 @{
     var tomorrow = DateTime.Today.AddDays(1).ToString("yyyy-MM-dd");
 }
@@ -8,7 +8,7 @@
 
     <div class="container">
         <form asp-controller="Food" asp-action="FoodUpdated" method="post">
-            <input type="hidden" name="Id" value="@Model.Food.Id"/>
+            <input type="hidden" name="Id" value="@Model.Food!.Id"/>
             <fieldset>
                 <legend>Add/Edit Food</legend>
                 <table class="table w-50">
@@ -20,7 +20,7 @@
                         <td>
                             <label for="State">State: </label>
                             <select id="State" name="State" class="form-control">
-                                @foreach (var option in Model.StateOptions)
+                                @foreach (var option in Model.StateOptions!)
                                 {
                                     if (Model.Food.State.ToString() == option.Text)
                                     {
@@ -60,7 +60,6 @@
                                 <input type="date" id="ExpirationDate" name="ExpirationDate" min="@tomorrow"
                                        value="@Model.Food.ExpirationDate.ToString("yyyy-MM-dd")" required/>
                             </td>
-                        </td>
                     </tr>
                     <tr>
                         <td colspan="2">

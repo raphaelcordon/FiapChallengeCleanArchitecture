@@ -1,10 +1,10 @@
 using Application.Dtos.FoodDtos;
 using Microsoft.AspNetCore.Mvc.Rendering;
 
-namespace Presentation.Models;
+namespace Presentation.Models.FoodModels;
 
 public class FoodUpdateViewModel
 {
-    public FoodResponseDto Food { get; set; }
-    public SelectList StateOptions { get; set; }
+    public FoodResponseDto? Food { get; init; }
+    public SelectList? StateOptions { get; init; }
 }

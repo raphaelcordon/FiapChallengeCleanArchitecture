@@ -13,7 +13,7 @@
                         <td>
                             <label for="DonorId">Donor: </label>
                             <select id="DonorId" name="DonorId" class="form-control" required>
-                                @if (Model?.Donors != null)
+                                @if (Model.Donors != null)
                                 {
                                     foreach (var option in Model.Donors)
                                     {
@@ -26,7 +26,7 @@
                     </tr>
                     <tr>
                         <td>
-                            @if (Model?.Foods != null)
+                            @if (Model.Foods != null)
                             {
                                 foreach (var option in Model.Foods)
                                 {

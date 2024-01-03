@@ -6,7 +6,7 @@ namespace Presentation.Models.PackageSentModels;
 
 public class PackageSentUpdateViewModels
 {
-    public PackageSentResponseDto Package { get; set; }
-    public IEnumerable<ReceiverResponseDto> Receivers { get; set; }
-    public IEnumerable<FoodResponseDto> Foods { get; set; }
+    public PackageSentResponseDto? Package { get; set; }
+    public IEnumerable<ReceiverResponseDto>? Receivers { get; set; }
+    public IEnumerable<FoodResponseDto>? Foods { get; set; }
 }

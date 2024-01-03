@@ -25,7 +25,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.Donors)
+            @foreach (var item in Model.Donors!)
             {
                 <tr>
                     <td>@item.Name.Name</td>
@@ -53,7 +53,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.Receivers)
+            @foreach (var item in Model.Receivers!)
             {
                 <tr>
                     <td>@item.Name.Name</td>
@@ -83,7 +83,7 @@
             </tr>
             </thead>
             <tbody>
-            @foreach (var item in Model.Foods)
+            @foreach (var item in Model.Foods!)
             {
                 <tr>
                     <td>@item.FoodName.Name</td>
