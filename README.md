@@ -48,6 +48,7 @@ Create an architecture and application that:
 
 - Framework net7.0
 - Database: SQLite
+- Tests: XUnit
 
 ---
 
@@ -84,7 +85,14 @@ Create an architecture and application that:
    >    - Views
 
 ### tests
->- **tbd**
+Testing the API Services
+
+>  - CRUD Successfully
+>  - CRUD Unsuccessfully
+>  - Testing:
+>    - Donor
+>    - Receiver
+>    - Packages Received / Sent
 ---
 
 ## **FUNCTIONALITIES**
